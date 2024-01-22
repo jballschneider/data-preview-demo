@@ -9,6 +9,7 @@ const V_PARAM = '20240103';
 export default async function generatePreview(
   request: SitesHttpRequest
 ): Promise<SitesHttpResponse> {
+  console.log(request);
   const { pathParams, queryParams, site } = request;
 
   // Get parameters for SitesAPI calls
