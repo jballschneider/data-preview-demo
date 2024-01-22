@@ -24,7 +24,7 @@ export default async function generatePreview(
 
   // Generate page content using fetched document
   const generateResponse = await fetch(`${API_DOMAIN}/v2/accounts/me/sites/${siteId}/generatepagecontent?templateId=${templateId}&deploymentId=${deploymentId}&api_key=${API_KEY}&v=${V_PARAM}`, 
-    {method: 'POST', body: JSON.stringify(entityData), headers: {'Content-Type': 'application/json'}});
+    {method: 'POST', body: JSON.stringify(entityData), headers: {'Content-Type': 'application/json', 'Referer': request.referrer}});
   const generateJson = await generateResponse.json();
 
   // Fix relativePrefixToRoot for serverless function path.
