@@ -29,7 +29,7 @@ export default async function generatePreview(
   const generateJson = await generateResponse.json();
 
   return {
-    body: htmlWithCorrectPath,
+    body: generateJson.response.content,
     headers: {'Content-Type': 'text/html'},
     statusCode: 200,
   };
