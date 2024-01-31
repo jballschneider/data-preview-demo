@@ -28,10 +28,6 @@ export default async function generatePreview(
     {method: 'POST', body: JSON.stringify(entityData), headers: {'Content-Type': 'application/json'}});
   const generateJson = await generateResponse.json();
 
-  // Fix relativePrefixToRoot for serverless function path.
-  const html = generateJson.response.content as string;
-  const htmlWithCorrectPath = html.replaceAll(/(\.\.\/)+/g, '../../../');
-
   return {
     body: htmlWithCorrectPath,
     headers: {'Content-Type': 'text/html'},
