@@ -8,3 +8,9 @@ buildConfiguration:
       - .npmrc
 livePreviewConfiguration:
   setupCommand: npm run dev -- --no-prod-url --local
+
+dynamicRoutes:
+  -
+    from: /coolprefix/*
+    to: /:splat
+    status: 302
